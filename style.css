@@ -1,3 +1,8 @@
+:root {
+  --primary-color: #ef32d9;
+  --secondary-color: #89fffd;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -5,7 +10,7 @@
 }
 
 .fived {
-  background: #ccc;
+  background: #777;
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -13,6 +18,7 @@
 }
 
 .btn {
+  background-color: var(--primary-color);
   width: 400px;
   height: 120px;
   font-family: Arial, Helvetica, sans-serif;
@@ -20,4 +26,46 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transform: rotate(-30deg) skewX(25deg) translate(0, 0);
+  box-shadow: -20px 20px 10px rgba(239, 50, 217, 0.5);
+  font-weight: bold;
+  transition: all 0.5s;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: -20px;
+  height: 100%;
+  width: 20px;
+  background-color: var(--primary-color);
+  transform: rotate(0) skewY(-45deg);
+  transition: all 0.5s;
+}
+
+.btn::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: -10px;
+  height: 20px;
+  width: 100%;
+  background-color: var(--primary-color);
+  transform: rotate(0) skewX(-45deg);
+  transition: all 0.5s;
+}
+
+.btn:hover {
+  background-color: var(--secondary-color);
+  color: #fff;
+  box-shadow: -50px 50px 50px rgba(137, 255, 253, 0.5);
+}
+
+.btn:hover::before {
+  background-color: var(--secondary-color);
+}
+
+.btn:hover::after {
+  background-color: var(--secondary-color);
 }
